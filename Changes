@@ -1,5 +1,14 @@
 Revision history for lib-tiny
 
+0.4  Tue Apr  1 09:24:03 2008
+       2 arg open in Makefile.PL for older perls
+       bumped version in README
+
+0.3  Tue Apr  1 09:05:03 2008
+       rt 34586: remove Build.PL
+       rt 34586: remove use warnings from Makefile.PL
+       rt 34586: address use strict in comments above $VERSION
+
 0.2  Tue Apr  1 08:13:34 2008
        improve strict fake out
        fix .in substitution leftover from draft

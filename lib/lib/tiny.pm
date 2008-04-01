@@ -1,6 +1,8 @@
 package lib::tiny;
 
-$VERSION = 0.2;
+# use strict; # disabled for production, since it doesn't gain any thing in this mod and adds appx 184K to memory
+# use vars qw($VERSION); # plus you know have to 'use vars' which bumps it up to 272K
+$VERSION = 0.4;
 
 # get real lib.pm, faking out the Config part of it...
 {
@@ -40,7 +42,7 @@ lib::tiny - use lib, without having to use Config!
 
 =head1 VERSION
 
-This document describes lib::tiny version 0.2
+This document describes lib::tiny version 0.4
 
 =head1 SYNOPSIS
 
@@ -89,7 +91,7 @@ L<http://rt.cpan.org>.
 
 =item Finish automating tests I've done manually (Test:: mods iterfere with %INC behavior checks )
 
-=item Do Build.PL and Makefile.PL more "properly" ?
+=item Do Makefile.PL .pm munge more "proper" ?
 
 =item use inside lib::restrict
 
