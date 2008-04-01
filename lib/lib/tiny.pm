@@ -1,12 +1,13 @@
 package lib::tiny;
 
-$VERSION = 0.1;
+$VERSION = 0.2;
 
 # get real lib.pm, faking out the Config part of it...
 {
     if (!exists $INC{'Config.pm'}) {
         # fake out 'use strict' in lib.pm so our $Config can be used
-        no warnings 'redefine';
+        local $INC{'strict.pm'};
+        local $^W; # no redefine warnings   
         local *strict::import = sub { 1; };
         
         local $INC{'Config.pm'}          = 'Config_PM_mtime';  # this is the mtime of Config.pm that these variables where fetched
@@ -39,7 +40,7 @@ lib::tiny - use lib, without having to use Config!
 
 =head1 VERSION
 
-This document describes lib::tiny version 0.1
+This document describes lib::tiny version 0.2
 
 =head1 SYNOPSIS
 
@@ -86,7 +87,7 @@ L<http://rt.cpan.org>.
 
 =over 4
 
-=item Finish automating tests I've done manually
+=item Finish automating tests I've done manually (Test:: mods iterfere with %INC behavior checks )
 
 =item Do Build.PL and Makefile.PL more "properly" ?
 

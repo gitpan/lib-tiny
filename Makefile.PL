@@ -24,10 +24,10 @@ my $content = do { local $/;<$rfh> };
 close $rfh;
 
 my $mtime = (stat($INC{'Config.pm'}))[9];
-$content =~ s/: 'Config_PM_mtime'/: '$mtime'/;
-$content =~ s/: 'Config.archname'/: '$Config{archname}'/;
-$content =~ s/: 'Config.version'/: '$Config{version}'/;
-$content =~ s/: 'Config.inc_version_list'/: '$Config{inc_version_list}'/;
+$content =~ s/ 'Config_PM_mtime'/ '$mtime'/;
+$content =~ s/ 'Config.archname'/ '$Config{archname}'/;
+$content =~ s/ 'Config.version'/ '$Config{version}'/;
+$content =~ s/ 'Config.inc_version_list'/ '$Config{inc_version_list}'/;
 
 open my $wfh, '>', 'lib/lib/tiny.pm' or die "Could not open lib/lib/tiny.pm: $!";
 print {$wfh} $content;

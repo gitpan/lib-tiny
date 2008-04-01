@@ -1,4 +1,8 @@
 Revision history for lib-tiny
 
+0.2  Tue Apr  1 08:13:34 2008
+       improve strict fake out
+       fix .in substitution leftover from draft
+
 0.1  Mon Mar 31 18:07:15 2008
        Initial release.
