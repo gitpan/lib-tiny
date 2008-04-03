@@ -1,5 +1,8 @@
 Revision history for lib-tiny
 
+0.5  Wed Apr  2 22:27:32 2008
+       make it actually tiny, no local(), pseudo 'compile' of Config vars
+
 0.4  Tue Apr  1 09:24:03 2008
        2 arg open in Makefile.PL for older perls
        bumped version in README

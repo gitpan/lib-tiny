@@ -1,34 +1,24 @@
 use Test::More tests => 4;
 
-my $strict;
 BEGIN {
-    use strict;
-    $strict = strict::import();
-}
-
-BEGIN {
-    use_ok( 'lib::tiny' );
+    require_ok( 'lib::tiny' );
 }
 
 diag( "Testing lib::tiny $lib::tiny::VERSION" );
 
-# Even though I've manually tested this by putting debug output in lib.pm
-# I'd like to automate said tests, however Test::More brings in Config.pm...
+my @dirs = qw(tiny_foo tiny_bar);
+mkdir $_ for @dirs; # set up
 
-# w/ out Config:
-#   munges @INC properly via use() and no()
+my @ORIG = @INC;
 
-my ($orig_a, $orig_b) = @INC;
-lib::tiny->import(qw(foo bar));
-ok($INC[0] eq 'foo' && $INC[1] eq 'bar', 'adds paths');
-lib::tiny->unimport(qw(foo bar));
-ok($INC[0] eq $orig_a && $INC[1] eq $orig_b, 'dels paths');
+lib::tiny->import(@dirs);
+ok($INC[0] eq $dirs[0] && $INC[1] eq $dirs[1], 'adds paths');
 
-ok(strict::import() eq $strict, 'strict localized properly');
+lib::tiny->unimport(@dirs);
+ok($INC[0] eq $ORIG[0] && $INC[1] eq $ORIG[1], 'dels paths');
 
-#   Config.pm isn't in %INC - Test::More brings it in...
+require lib;
+lib->import(@dirs);
+ok($INC[0] eq $dirs[0] && $INC[1] eq $dirs[1], 'adds paths ordered same as lib.pm');
 
-# w/ Config
-#   is normal
-
-# w/ out strict = no errors
+rmdir $_ for @dirs; # clean up
