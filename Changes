@@ -1,5 +1,9 @@
 Revision history for lib-tiny
 
+0.6  Thu Apr  3 20:55:36 2008
+       make lib.pm test eval'd and SKIP:able since at least one 5.00505 perl choked on lib->import
+       fix test mkdir call to be old compat as well
+
 0.5  Wed Apr  2 22:27:32 2008
        make it actually tiny, no local(), pseudo 'compile' of Config vars
 

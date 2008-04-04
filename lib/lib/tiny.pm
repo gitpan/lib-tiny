@@ -1,7 +1,7 @@
 package lib::tiny;
 
 # use strict; # this works but is disabled for production, since it doesn't gain any thing in this mod and adds appx 184K to memory
-$lib::tiny::VERSION = 0.5;
+$lib::tiny::VERSION = 0.6;
 
 sub import {
     shift;
@@ -36,7 +36,7 @@ lib::tiny - use lib, without having to use memory by loading Config
 
 =head1 VERSION
 
-This document describes lib::tiny version 0.5
+This document describes lib::tiny version 0.6
 
 =head1 SYNOPSIS
 
