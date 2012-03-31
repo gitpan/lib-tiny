@@ -1,5 +1,9 @@
 Revision history for lib-tiny
 
+0.7  Thu Mar 29 21:25:52 2012
+    - break POD out into its own file
+    - add lib::tiny::findbin v0.1
+    
 0.6  Thu Apr  3 20:55:36 2008
        make lib.pm test eval'd and SKIP:able since at least one 5.00505 perl choked on lib->import
        fix test mkdir call to be old compat as well
